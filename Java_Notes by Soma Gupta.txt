@@ -1,0 +1,2023 @@
+What is Java?
+Java is an object oriented programming language which is platform independent
+and hence so popular and still growing.
+
+What makes Java platform independent?
+The compiled code is generated in such a format which can be understood and deciphered by every JVM.
+
+The main keywords
+JDK itself is platform dependent. The JDK is a development environment for building applications and components using the Java programming language.
+JRE (Java Runtime Environment) is lighter than jdk. It is also platform dependent. It is used to run/execute a Java application.
+		JDK=JRE+APIs
+
+JVM (Java Virtual Machine) is a logical environment on which we create and run Java applications.
+
+Eclipse IDEs makes the process of creating a Java application easier.It also requires the
+jdk in the back end.
+
+The reason why we say that Java is platform independent.
+The byte code is what makes it so...
+The javac compiler on compiling a source file written in Java (.java) gets a .class file
+generated which contains the byte code.
+Any JVM (any jdk/jre) present on any OS will be able to decode the byte code and convert
+it into machine code. 
+
+Let us write a HelloWorld program
+To compile...
+javac Main.java
+It generated that many .class files as many class declarations were present in the
+source file.
+javap Demo
+Compiled from "Main.java"
+class Demo {
+  Demo();//constructor
+}
+To execute, we use java application launcher
+C:\Users\t-Soma5\Desktop\ADM21JF020\javaprac>java Demo
+Error: Main method not found in class Demo, please define the main method as:
+   public static void main(String[] args)
+
+Lets us explore the code below:
+	static public void main(String[] a){
+		System.out.println("Hello Friend");
+	}
+
+a) static when applied to a method or a variable implies that it will be available
+without requiring any instance or object.
+b) public implies access to all
+c) void implies this method will not return any value
+d) main is a method name
+e) String[] a is an array of type String. 
+This is also known as command line arguments.
+C:\Users\t-Soma5\Desktop\ADM21JF020\javaprac>java Demo 78.89 true 'g' 45
+
+System.out.println() is used to print something on the standard output device.
+-- same as printf
+Scanner class will help me to accept input from the user. This class is already present.
+To get an instance of this class we need to import the package java.util.
+	#include<stdio.h>
+-- same as scanf
+
+The package is a collection of classes and interfaces used to provide us something
+useful.
+
+The System class is present in the package java.lang which is the default package in a
+Java program.
+
+We will do a program to accept input from the user.
+import java.util.Scanner;
+class Example{
+	static public void main(String[] a){
+		System.out.println("Enter your name");
+		Scanner sc=new Scanner(System.in);
+		String name=sc.nextLine();
+		System.out.println("Hello "+name);
+	}
+}
+
+A class is a template which shares the common attributes(variables) and behavior(methods). An instance (aka object) is a real time representation of the class.
+Class: Dog
+barkingSound
+bark(), sniff()
+Instance: Labrador, Golden Retriever
+
+Class: Car
+mileage
+applyBrakes(), accelerate()
+Instance:Tiago, BMW
+
+Lets deep dive into the java.util.Scanner class
+Scanner class provides several methods to accept inputs of different types.
+String : next() and nextLine()
+int: nextInt()
+float: nextFloat()
+boolean: nextBoolean()
+
+What are the primitive data types supported by Java
+Numeric:
+	byte [8], short [16], int [32], long [64]
+Decimal:
+	float [32], double [64]
+Character:
+	char [16] it supports unicode charset
+Boolean:
+	boolean : supports true or false
+
+Code Example:
+import java.util.Scanner;
+class Example{
+	static public void main(String[] a){
+		System.out.println("Enter your name");
+		Scanner sc=new Scanner(System.in);
+		String name=sc.nextLine();
+		System.out.println("Enter your age");
+		int age=sc.nextInt();
+		System.out.println("Enter your %");
+		float percent=sc.nextFloat();
+		System.out.println("R you working");
+		boolean isWorking=sc.nextBoolean();
+		System.out.println("******************");
+		System.out.println("Hello "+name);
+		if(age<18)
+		System.out.println("Still time to cast your vote");
+		else
+		System.out.println("Don't miss your voting rights");
+		System.out.println(percent);
+		System.out.println("Working? "+isWorking);
+	}
+}
+
+
+CC2 completed
+Heading towards CC3 (Java) | 2021-12-16
+We will have two CCs each of 2 hrs duration (approx)
+------------------------------------------------------------
+Types of variable declarations
+Class and Object
+Naming guidelines
+
+In a Java program, we can declare variables as
+a) instance variable | a variable will have the value different for each instance.
+b) class or static variable | a variable made static will be shared by all the instances of the class. We can access such a variable directly using class name.
+c) local variable | a variable defined with a block (a method or a loop or
+a if block)
+
+The variable t1 is a reference variable (somewhat like an envelope)
+which first points to null (nothing).
+The new keyword is responsible for allocation of memory from the JVM heap
+memory.
+		Trainee t1=new Trainee();
+		Trainee.cohortCode="ADM21JF020";
+		t1.name="Parth Narang";
+ 		System.out.println(t1); // prints the hashcode in hex format [Trainee@6d06d69c].
+
+Every object is assigned a unique id(hashcode) by the JVM. You can compare this with your associate id.
+
+The constructor is a special method which immediately follows the new keyword when defining an instance of the class. It will always have the same name as the class and will never have any return type mentioned in the 
+declaration.
+
+Why do we need a constructor? A constructor is used to initialize the instance variables to some non default values.
+
+If we do not mention explicitly, the javac compiler automatically provides one no arg constructor. If we provide a constructor explicitly, javac complier no longer does take the responsibility to add any constructor.
+
+Java naming conventions
+a) The class name must start in upper case. If multiple word, each word's first character should be in upper case.
+For ex: SavingsAccount,ConferenceHall, ShoppingCart
+b) The class name should be a NOUN.
+c) The method and variable name should follow lower camel case
+For ex: basicPay, leaveBalance, totalAmount
+For ex: printSalarySlip(), addToCart()
+d) The method name should be a VERB
+e) The package name should be in lower case
+for ex: java.util, java.lang, java.sql
+f) Every identifier must be meaningfull.
+
+Why should I use this keyword?
+a) To resolve ambiguity when the instance variable and local variable have the same name. Here this implies current instance
+	this.name ==> instance variable name
+	name ==>local variable
+
+Summary
+a) jdk vs jre
+b) class and object concept
+c) constructor concept
+d) use of this keyword
+
+TBD
+Array concept in Java
+String concept in Java
+Method Overloading (static polymorphism)
+
+Thursday
+Access Modifiers| Encapsulation
+
+
+
+
+Method calling
+Method Overloading (static polymorphism)
+Wrapper class
+Array concept in Java
+String concept in Java
+
+To invoke instance methods, we require an instance of the class.
+The method can be void or can have any return type like boolean,int, etc...
+
+class Trainee{
+	String name;
+	int age;
+
+	Trainee(String name, int age){
+		//2 arg
+		this.name=name;
+		this.age=age;
+	}
+	Trainee(){}//no arg
+
+	//behaviour [instance methods]
+	public void display(){
+		System.out.println(name+" | "+age);
+	}
+	public boolean isEligibleToVote(){
+		if(age>=18)
+			return true;
+		return false;
+	}
+}
+class Example{
+	static public void main(String[] a){
+		//create an instance of the Trainee class
+		Trainee t=new Trainee("Abhijeet",20);
+		//method invocation
+		t.display();
+		System.out.println(t.isEligibleToVote());
+
+		Trainee t1=new Trainee("Sumit",5);
+		t1.display();
+		System.out.println(t1.isEligibleToVote());			
+	}
+}
+
+Method Overloading -- Static Polymorphism
+Polymorphism=Poly(multiple)+Morphos(forms)
+We will have the same method(behavior) but different implemenations.
+For this, we need to modify the method signature
+a) no of parameters
+b) sequence of parameters
+c) data type of parameters
+
+In method overloading, the return type DOES NOT PLAY ANY ROLE.
+Constructors can be overloaded.
+
+Example:
+class Calculator{
+	int add(int a,int b){
+		System.out.println(1);
+		return a+b;
+	}
+	float add(float a,float b){
+		System.out.println(2);
+		return a+b;
+	}
+	float add(float a,int b){
+		System.out.println(3);
+		return a+b;
+	}
+	int add(int a,int b,int c){
+		System.out.println(4);
+		return a+b+c;
+	}
+}
+class Example{
+	static public void main(String[] a){
+		Calculator calc=new Calculator();
+		//actual method invocation
+		System.out.println(calc.add(5,6));
+		System.out.println(calc.add(5.0f,6));
+		System.out.println(calc.add(5.0f,6.2f));
+		System.out.println(calc.add(5,6,2));
+	}
+}
+
+Example of varargs...
+class Calculator{
+	//varargs
+	int add(int... nums){
+		int sum=0;
+	//local variable has to be initialized before using it
+		//array
+		System.out.println("me working");
+		for(int i=0;i<nums.length;i++)
+			sum+=nums[i];
+		return sum;		
+	}
+	int add(int a,int b){
+		System.out.println(1);
+		return a+b;
+	}
+	int add(int a,int b,int c){
+		System.out.println(4);
+		return a+b+c;
+	}
+	int add(Integer a,Integer b){
+		System.out.println(2);
+		return a+b;
+	}
+}
+class Example{
+	static public void main(String[] a){
+		Calculator calc=new Calculator();
+		//actual method invocation
+		System.out.println(calc.add(5,6));
+		System.out.println(calc.add(5,6,2));
+		System.out.println(calc.add(5,6,2,1,2,3,4,5));
+	}
+}
+
+If we have different options like pdt as well as object, JVM will give more piority to pdt because memory expense is less.
+
+The varargs (datatype... var_name) must be the last argument in a method parameter list.
+Is it valid?
+	void meth(int...nums,String...names){}
+No
+
+Wrapper class| Every primitive data type has a corresponding wrapper type.
+Why?? We cannot convert primitve data type to String type directly.
+ incompatible types: String cannot be converted to int
+String in Java is a CLASS. 
+int ==> Integer 
+java.lang.Integer is a wrapper class which provides the power to int pdt.
+Every pdt has a corresponding wrapper type.
+boolean Boolean
+int Integer
+float Float
+double Double
+byte Byte
+char Character
+
+Example
+class Example{
+	static public void main(String[] a){
+		String str="56";
+		//5*16^1+6*16^0=86
+		int num=Integer.parseInt(str,16);
+		System.out.println(num);
+		num=Integer.parseInt(str);//base 10
+		System.out.println(num);
+		//5*8^1+6*8^1=46
+		num=Integer.parseInt(str,8);//base 8
+		System.out.println(num);
+
+		System.out.println("******************");
+		int xy=39;
+		System.out.println(Integer.toHexString(xy));//base 16
+		System.out.println(Integer.toOctalString(xy));//base 8
+		System.out.println(Integer.toBinaryString(xy));//base 2
+		System.out.println(Integer.toString(xy));//base 10		
+	}
+}
+
+Explore the concept of array in Java
+An array is a fixed size collection of homogenous elements stored at continious memory locations.
+
+In Java, an array is treated as an object.When we create an array, memory is allocated from the JVM heap memory.
+	int[] arr;
+Here arr is just a reference variable(envelope without any address mentioned on it).
+	arr=new int[5];
+The new keyword allocates the memory and initializes each room with default value based on data type (0).	
+
+class Example{
+	static boolean[] arr=new boolean[5];
+	static public void main(String[] a){
+		for(int i=0;i<arr.length;i++)
+		System.out.println(arr[i]);
+	}
+}
+The length is a property not a function.
+
+We can also create a array with array initializer block.
+Please refer below:
+
+import java.util.Arrays;
+class Example{
+	// String[] arr={"abc","acbc","accb","adcd","abbc","babc"};
+	int[] arr={9,5,1,2,3,4,5,2,1,6};
+
+	public void meth(){
+		for(int i=0;i<arr.length;i++)
+				System.out.println(arr[i]);
+		
+		/*java.util.Arrays class
+		 (utility class to make our life bindass*/
+		Arrays.sort(arr);// quick sort dual pivot algorithm
+		System.out.println(Arrays.toString(arr));
+	}
+	static public void main(String[] a){
+		 Example ex=new Example();
+		ex.meth();
+	}
+}
+
+Here, Arrays is a utility class with several important methods.
+import java.util.Arrays;
+class Example{
+		int arr[]={1,2,3};
+		int xyz[]={1,3,2};
+		/* 
+		if it has the same elements in the same position, 
+		two arrays are equal. */
+
+		public boolean meth(){
+			return Arrays.equals(arr,xyz);//false
+		}
+	
+	static public void main(String[] a){
+		 Example ex=new Example();
+		System.out.println(ex.meth());
+	}
+}
+
+We can create an array of user defined type.
+Example
+class Book{
+	String title;
+	Float price;
+	Book(String title,Float price){
+		this.title=title;
+		this.price=price;
+	}
+}
+
+class Example{
+	//array of books
+	Book[] books=new Book[3];
+	int i=0;
+	public void save(Book book){
+		books[i++]=book;
+	}
+	public void show(){
+		for(int i=0;i<books.length;i++)
+			System.out.println((i+1)+" | "+books[i].title);
+	}	
+	static public void main(String[] a){
+		Example ex=new Example();
+		Book b1=new Book("Complete Java",316.0f);
+		Book b2=new Book("Learn Java",316.0f);
+		Book b3=new Book("Java in nutshell",316.0f);
+		ex.save(b1);//passing the book reference
+		ex.save(b2);ex.save(b3);
+		ex.show();
+	}
+}
+
+
+
+
+
+
+
+String concept in Java
+String related classes
+
+The java.lang.String is a class which behaves as a pdt.
+Why?? String is a universal data type which can digest any type of data.
+
+How to create an instance of the class?
+	String str=new String("hello);
+The memory is allocated from the JVM heap.
+	
+How will it behave as a pdt?
+	String str="hello";
+What will happen internally?
+The JVM heap has a special area known as String pool.
+The memory allocation happens from the pool and not outside the pool.
+
+String s="hello";//Line 1
+The line 1 is executed...
+First the JVM peeps into the pool to find a String instance with the
+content "hello".
+	Not Found
+	An object is created in the pool with the mentioned content "hello" and the address is assigned back to the reference variable "s".
+String t="hello";//line 2
+The line 2 is executed...
+First the JVM peeps into the pool to find a String instance with the
+content "hello".
+	Found
+	The address of the existing object with that content will be assigned back to the reference variable "t".
+
+Example:
+class Example{
+	static public void main(String[] a){
+		Example ex=new Example();
+		String s="cts";
+		String t="cts";
+		/* == is memory address match checking */
+		System.out.println(s==t);//T
+		/* .equals() is used for content checking */
+		System.out.println(s.equals(t));//T
+
+		String z=new String("cts");
+		System.out.println(s==z);//f
+		System.out.println(s.equals(z));//T
+	}
+}
+
+String objects are IMMUTABLE. Once content is assigned to a String object, we cannot modify it.
+Why it should be immutable?? Data consistency.
+As multiple references are assigned the same address of the String object. Hence, if one reference brings the change, all other references will suffer. To avoid we make the concept immutable.
+
+The object with the previous content remains unmodified. Rather a new object with the new content gets created and its address is assigned to the reference variable which asked for the change.
+
+Example:
+class Example{
+	static public void main(String[] a){
+		Example ex=new Example();
+		String s="cts";
+		//s=s+" rocks!!!";
+		String t=s+" rocks!!!";
+		System.out.println(s);//cts
+		System.out.println(t);//cts rocks!!!
+	}
+}
+
+Time to explore methods of String class...
+class Example{
+	static public void main(String[] a){
+		String str="java program";
+		System.out.println(str.length());
+		//array length is a property
+		//String length() is a function
+		System.out.println(str.charAt(6));//zero based
+	System.out.println(str.endsWith("ram"));//true
+	System.out.println(str.startsWith("Java"));//false
+	System.out.println(str.equalsIgnoreCase("Java Program"));//true
+	System.out.println(str.equals("Java Program"));//false
+	System.out.println(str.indexOf("a"));//indx of first occur of 'a'
+	System.out.println(str.lastIndexOf("a"));//last occur of 'a'
+	if(str.indexOf("a")==str.lastIndexOf("a"))
+		System.out.println("Unique");
+	else
+		System.out.println("duplicate");
+
+	System.out.println(str.contains("hello"));//false		
+		
+	}
+}
+
+email.conatins("@");//false
+email.indexOf("@");//-1
+
+Example:
+class Example{
+	static public void main(String[] a){
+		String str="741829637";
+		System.out.println(str.matches("[6-9]{1}[0-9]{9}"));	
+		//Pattern and Matcher
+
+		String colorCode="#gggggg";
+		System.out.println(colorCode.matches("[#]{1}[a-f0-9]{6}"));
+
+		String p="java";
+		char ch[]=p.toCharArray(); 	
+		for(int i=0;i<ch.length;i++)
+			System.out.println(ch[i]);
+
+		System.out.println(p.toUpperCase());
+
+		//join is an example of static method defined in the String class.
+		System.out.println(String.join(" | ","tom","dick","harry"));
+
+		/*
+		We call the out variable with System..
+		java.lang.System is a class and out and in are the static variables
+		defined in the System class.
+		*/		
+	}
+}
+
+Example
+class Example{
+	static public void main(String[] a){
+		String str="concatenation";
+		String p=str.substring(4,7);//start in inclusive and end is exclusive
+		System.out.println(p);//ate
+
+		//str="how are you hope you are doing good";
+		//str="10.172.156.2";
+		str="abc|bcd|efg|pqr";
+		String [] arr=str.split("\\|");// | operator
+		System.out.println(arr.length);
+	}
+}
+
+Unlike java.lang.String instances which are immutable,
+java.lang.StringBuilder instances are mutable.
+a) The default capacity of sb instance is 16 (when no arg cons is invoked).
+b) What will happen if we call the constructor with a String???
+The initial capacity becomes 16+ length of the string passed.
+c) When you keep on adding characters...the capacity increases as previous capacity*2+2 
+
+Example:
+class Example{
+	static public void main(String[] a){
+		StringBuilder sb=new StringBuilder("java");
+		System.out.println(sb.capacity());//16+len("java")
+		sb.append(" programming").append(" language").insert(0,"The ");
+		System.out.println(sb.toString());
+		System.out.println(sb.capacity());
+		sb.reverse();
+		System.out.println(sb.toString());//returns a String object
+	}
+}
+
+Example:
+		float fnum=789.4586f;
+		//upto 2 decimals places
+		System.out.printf("%.2f\n",fnum);
+		System.out.println(String.format("%.2f",fnum));
+
+Summary
+Class and Object
+Method invocation
+Wrapper class
+Concept of array
+java.util.Arrays (sort(),toString(),equals())
+We had an array of user defined objects
+----------------------------------------
+String class and its features
+String class methods
+Visited StringBuilder class which gives us mutable instance.
+
+TBD
+Explore getters and setters
+Explore encapsulation
+Explore inheritance
+ 
+
+
+Inheritance and the related concepts
+Points:
+1. Java supports single inheritance and multi level inheritance.
+
+class GrandParent{}
+class Parent exends GrandParent{}
+class Child extends Parent{}
+
+2. The derived class inherits all the non private data members from the base class.
+3. The constructors of the base class are not inherited but they are called when we create 
+an instance of the derived class. This happens because of super() call.
+The super() will invoke the no arg constructor of its immediate super class (Shape)
+class Shape{
+	Shape(){
+		System.out.println("Shape");
+	}
+}
+class Circle extends Shape{
+	Circle(){
+		super();//this line was put by the javac compiler		
+		System.out.println("Circle");
+	}
+}
+
+4. The root of the java hirerachy is the java.lang.Object class.
+5. Why should I override an inherited instance method?
+The inherited method might not be complete to fulfill the requirements.
+We override the method to add logic and enhance its functionality.
+
+6. What do we need to follow during method overriding?
+a) The method name and signature must remain unchanged
+b) The access modifier of the overriding method (derived class) can either
+be same or wider than that of the inherited method (base class).
+class Shape{
+	int dim;
+	protected double area() {
+		return 0;
+	}
+}
+class Circle extends Shape{	
+	//method overriding
+	public double area() {
+		return Math.PI*Math.pow(dim, 2);
+	}
+}
+
+c) The return type of the overriding method (derived class) can either
+be same or it can be sub type of the return type of the inherited method (base class).
+class Shape{
+	int dim;
+	Object area() {
+		return null;
+	}
+}
+class Circle extends Shape{
+	//method overriding
+	//Circle IS A Shape; Double IS A Object
+	Double area() {
+		//return Math.PI*Math.pow(dim, 2);
+		return new Double(7);
+	}
+}
+
+7. We will explore super keyword more...
+a) The super(); can be with or without arguments. Accordingly, it will call the
+matching constructor of the immediate super class.
+class Employee{
+	String name;
+	String profile;
+	Employee(String name){
+		this.name=name;
+		this.profile="Entry Level Trainee";
+	}
+	Employee(String name,String profile){
+		this.name=name;
+		this.profile=profile;
+	}
+}
+class PermanentEmployee extends Employee{
+	public PermanentEmployee(String name,String profile) {
+		super(name,profile);		
+	}	
+}
+class Fresher extends Employee{
+	public Fresher(String name) {
+		super(name);
+	}
+}
+
+b) The super.inherited_method is used to invoke the inherited method from the body 
+of overriding method in the derived class.
+class Employee{
+	public void display() {
+		System.out.println("I am curently working ");
+	}
+}
+class Fresher extends Employee{
+	public void display() {
+		super.display();
+// you are calling the overridden method from the derived class
+		System.out.println("and learning new skills");		
+	}
+}
+
+8. What is Runtime polymorphism?
+The reference variable will be of super type and it will contain the address of any of the
+derived class object based on some choice at runtime.
+
+class Shape{
+	int dim;
+	double area() {
+		return 0.0;
+	}
+}
+class Square extends Shape{
+	double area() {
+		return dim*dim;
+	}
+}
+class Circle extends Shape{
+	double area() {
+		return Math.PI*Math.pow(dim, 2);
+	}
+}
+class Triangle extends Shape{
+	double area() {
+		return 0.5*dim*dim;
+	}
+}
+public class Main2 {	
+		public static void printArea(Shape sh) {
+			System.out.println(sh.getClass());
+			System.out.println("Area: "+sh.area());
+		}	
+		public static void main(String[] args) {
+			Scanner sc=new Scanner(System.in);
+			System.out.println("[C]ircle [T]riangle [S]quare");
+			String choice=sc.next();
+			System.out.println("enter dimension");
+			int dim=sc.nextInt();
+			Shape shape=null;
+			switch(choice) {
+			case "S":
+				shape=new Square();						
+				break;
+			case "T":
+				shape=new Triangle();					
+				break;
+			case "C":
+				shape=new Circle();					
+				break;
+			}
+			shape.dim=dim;	
+			printArea(shape);
+		}
+}
+
+9. When shall I use instanceOf operator?
+The base class cannot access a data member specially added to the derived class.
+To access such a data member using super type reference variable, we need to down cast it to base type.
+Before downcasting, we use instanceof operator to check the type of the object assigned to the
+super type reference variable.
+
+class Employee{
+	String name;
+	String profile;
+	public Employee(String name, String profile) {
+		super();
+		this.name = name;
+		this.profile = profile;
+	}	
+}
+class Fresher extends Employee{
+	public Fresher(String name) {
+		super(name,"Entry Level Trainee");
+	}
+}
+class Experienced extends Employee{
+	int yearsExp=0;//specially for Experienced people
+	public Experienced(String name,String profile,int yearsExp) {
+		super(name,profile);
+		this.yearsExp=yearsExp;
+	}
+}
+public class Main2 {
+	public void print(Employee employee) {
+		System.out.println("*** Employee Details ***");
+		System.out.println("Name: "+employee.name);
+		System.out.println("Profile: "+employee.profile);
+		if(employee instanceof Fresher) {
+			System.out.println("No experience gathered yet");
+		}else if(employee instanceof Experienced) {
+			//converting Employee to Experienced
+			Experienced exp=(Experienced)employee;
+			System.out.println("Years of Experience: "+exp.yearsExp);
+		}
+	}
+	public static void main(String[] ar) {
+			Employee emp=new Experienced("Saurabh Gupta","FSD coder",3);
+			Main2 m2=new Main2();
+			m2.print(emp);
+	}
+}
+
+
+
+File Handling
+We need the package java.io for understanding and exploring file handling concepts.
+
+System.out and System.in are static reference variables defined in the java.lang.System class to perform output and input activities.
+
+System.in refers to java.io.InputStream class
+ and 
+System.out and System.err refers to java.io.PrintStream class
+
+The stream (which can be a source or a sink) can be classified into two 
+catagories:
+a) byte stream has several classes
+	InputStream is an abstract class which provides the abstract method read() : Reads the next byte of data from the input stream.
+Some classes which extend the InputStream are FileInputStream,
+BufferedInputStream, ByteArrayInputStream,...
+FileInputStream is meant for reading streams of raw bytes such as image data. 
+	OutputStream is an abstract class which provides the abstract method called write(): Writes the byte of data.
+Some classes which extend the InputStream are FileOutputStream,
+BufferedOutputStream, ByteArrayOutputStream,...
+FileOutputStream is meant for writing streams of raw bytes such as image data.
+
+Example:
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+public class Main12 {
+	public static void main(String[] args) throws Exception {
+		FileOutputStream fos=new FileOutputStream("myfile.txt",true);//append mode
+		//new FileOutputStream("myfile.txt");//write mode
+		fos.write(10);//'A'
+		String str=" Good morning";
+		byte b[]=str.getBytes();
+		fos.write(b);
+		fos.close();
+		
+		FileInputStream fis=new FileInputStream("myfile.txt");
+		int x=fis.read();
+		while(x!= -1) {
+			System.out.print((char)x);
+			x=fis.read();
+		}		
+		fis.close();			
+	}
+}
+
+b) character stream (char=2 bytes) has several classes
+We have Reader and Writer abstract classes to share the concept of character stream
+Reader is also an abstract class which has the abstract method called read().Similarly, Writer is also an abstract class with the abstract method called write().
+FileReader is meant for reading streams of characters is one of the
+classes indirectly extending the Reader abstract class.
+BufferedReader is also another example: Reads text from a character-input stream, buffering characters so as to provide for the efficient reading of characters, arrays, and lines. 
+
+Example: 
+import java.io.BufferedReader;
+import java.io.FileReader;
+public class Main12 {
+	public static void main(String[] args) throws Exception {
+		FileReader fr=new FileReader("myfile.txt");
+		BufferedReader br=new BufferedReader(fr);
+		
+		/*int k=fr.read();
+		while(k!= -1) {
+			System.out.println("Read: "+(char)k);
+			k=fr.read();
+		}*/
+		
+		String s=br.readLine();//Reads a line of text
+		while(s!= null) {
+			System.out.println(s);
+			s=br.readLine();
+		}
+		br.close();
+	}
+}
+
+FileWriter is meant for writing streams of characters. 
+
+An InputStreamReader is a bridge from byte streams to character streams: It reads bytes and decodes them into characters using a specified charset.
+
+Example:
+import java.io.BufferedReader;
+import java.io.FileWriter;
+import java.io.InputStreamReader;
+public class Main12 {
+	public static void main(String[] args) throws Exception {
+		//to read from console
+		InputStreamReader isr=new InputStreamReader(System.in);
+		BufferedReader br=new BufferedReader(isr);
+		System.out.println("Give your feedback");
+		FileWriter fw=new FileWriter("abc.txt",true);//append mode
+		String s=br.readLine();
+		int i=0;
+		while(s!= null) {
+			if(s.equals("done")) {
+				break;
+			}
+			fw.write(s);
+			fw.write(System.lineSeparator());
+			i++;	
+			s=br.readLine();
+			fw.flush();
+		}		
+		System.out.println("You have written: "+i+" lines.");		
+		br.close();
+		fw.close();		
+	}
+}
+
+
+
+
+JDBC (Java Database Connectivity)
+We will require some external jar files. We need to create a Maven project.
+a) File>New>Project>Maven Project
+b) Select Simple Archetype (a template with a file structure)
+and click Next button
+c) We write the groupId com.learn and artifactId jdbc-demo and click Finish button
+
+We need to pass a request for the jar file (mysql-connector.jar)
+We will make the request in the pom.xml file.(Project Object Model)
+This master file helps to keep track of the entire application.
+
+JDBC is an application used to connect the Java application
+to any backend database like MySQL, Oracle, etc...
+Every db provider provides a separate connection.jar file
+
+Steps are:
+a) Get the jar file
+b) Load and register the Driver class (Class 4 driver)
+c) Get the Connection object
+d) Write and execute the query
+e) Fetch the records based on query or get some confirmation
+
+create table flight(
+flightId int,
+source varchar(30),
+destination varchar(30),
+noofseats int,
+flightfare decimal(8,2)
+);
+
+The connection URL for the mysql database is jdbc:mysql://localhost:3306/<<dbname>> where jdbc is the API, mysql is the database, localhost is the server name on which mysql is running, we may also use IP address, 3306 is the port number and dbname is the database name.
+
+-- Load the driver
+Class.forName("com.mysql.cj.jdbc.Driver");
+--Get the connection object
+DriverManager.getConnection(url, username, password); where
+url=jdbc:mysql://localhost:3306/<<dbname>>
+The above method will return java.sql.Connection reference.
+java.sql.Connection is an interface.
+
+To execute/fire a query we have three interfaces
+a) Statement | is used to execute simple query without any parameter
+	select * from flight;
+
+b) PreparedStatement | is used to execute DML commands [insert,update,delete] and select command with clauses.. (parameterized query)
+	select * from flight
+	where source=? and destination=?;
+	ps.setString(1,flightObj.getSource());
+	ps.setString(2,flightObj.getDestination());
+The ps reference has several such setXXX() methods.
+
+c) CallableStatement | is used to execute stored procedures in SQL.
+
+The common methods to execute the query are:
+	int executeUpdate() :: it tells number of rows affected by the query 
+	ResultSet executeQuery() :: it returns the in memory representation of the records returned.
+
+java.sql.ResultSet is also an interface.
+
+Database Table | Ice Cream freezer
+Cone,Cup | ResultSet
+
+In a ResultSet the cursor(spoon) is pointing to no where.
+First time, when we write rs.next(); the spoon is dipped into the cup (the cursor moves to the first row). On every next execution of this statement, the cursor points to the next record (dipping the spoon again into the ice cream cup).
+
+Until the cup is empty or the result set has been completely traversed.
+
+
+Handling
+We need the package java.io for understanding and exploring file handling concepts.
+
+System.out and System.in are static reference variables defined in the java.lang.System class to perform output and input activities.
+
+System.in refers to java.io.InputStream class
+ and 
+System.out and System.err refers to java.io.PrintStream class
+
+The stream (which can be a source or a sink) can be classified into two 
+catagories:
+a) byte stream has several classes
+	InputStream is an abstract class which provides the abstract method read() : Reads the next byte of data from the input stream.
+Some classes which extend the InputStream are FileInputStream,
+BufferedInputStream, ByteArrayInputStream,...
+FileInputStream is meant for reading streams of raw bytes such as image data. 
+	OutputStream is an abstract class which provides the abstract method called write(): Writes the byte of data.
+Some classes which extend the InputStream are FileOutputStream,
+BufferedOutputStream, ByteArrayOutputStream,...
+FileOutputStream is meant for writing streams of raw bytes such as image data.
+
+Example:
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+public class Main12 {
+	public static void main(String[] args) throws Exception {
+		FileOutputStream fos=new FileOutputStream("myfile.txt",true);//append mode
+		//new FileOutputStream("myfile.txt");//write mode
+		fos.write(10);//'A'
+		String str=" Good morning";
+		byte b[]=str.getBytes();
+		fos.write(b);
+		fos.close();
+		
+		FileInputStream fis=new FileInputStream("myfile.txt");
+		int x=fis.read();
+		while(x!= -1) {
+			System.out.print((char)x);
+			x=fis.read();
+		}		
+		fis.close();			
+	}
+}
+
+b) character stream (char=2 bytes) has several classes
+We have Reader and Writer abstract classes to share the concept of character stream
+Reader is also an abstract class which has the abstract method called read().Similarly, Writer is also an abstract class with the abstract method called write().
+FileReader is meant for reading streams of characters is one of the
+classes indirectly extending the Reader abstract class.
+BufferedReader is also another example: Reads text from a character-input stream, buffering characters so as to provide for the efficient reading of characters, arrays, and lines. 
+
+Example: 
+import java.io.BufferedReader;
+import java.io.FileReader;
+public class Main12 {
+	public static void main(String[] args) throws Exception {
+		FileReader fr=new FileReader("myfile.txt");
+		BufferedReader br=new BufferedReader(fr);
+		
+		/*int k=fr.read();
+		while(k!= -1) {
+			System.out.println("Read: "+(char)k);
+			k=fr.read();
+		}*/
+		
+		String s=br.readLine();//Reads a line of text
+		while(s!= null) {
+			System.out.println(s);
+			s=br.readLine();
+		}
+		br.close();
+	}
+}
+
+FileWriter is meant for writing streams of characters. 
+
+An InputStreamReader is a bridge from byte streams to character streams: It reads bytes and decodes them into characters using a specified charset.
+
+Example:
+import java.io.BufferedReader;
+import java.io.FileWriter;
+import java.io.InputStreamReader;
+public class Main12 {
+	public static void main(String[] args) throws Exception {
+		//to read from console
+		InputStreamReader isr=new InputStreamReader(System.in);
+		BufferedReader br=new BufferedReader(isr);
+		System.out.println("Give your feedback");
+		FileWriter fw=new FileWriter("abc.txt",true);//append mode
+		String s=br.readLine();
+		int i=0;
+		while(s!= null) {
+			if(s.equals("done")) {
+				break;
+			}
+			fw.write(s);
+			fw.write(System.lineSeparator());
+			i++;	
+			s=br.readLine();
+			fw.flush();
+		}		
+		System.out.println("You have written: "+i+" lines.");		
+		br.close();
+		fw.close();		
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+Thread basics
+Annotations and Garbage Collection
+
+a)
+public class UserInterface{
+	private Map<Integer,String> map=new HashMap<>();
+}
+b)
+//upto 2 decimal places
+System.out.println("Total "+String.format("%.2f",total));
+System.out.printf("Total %.2f\n",total);
+c)
+	int cnt=0;
+d)
+	try{
+		FileInputStream fis=null;
+		fis=new FileInputStream("log.txt");
+	}catch(Exception e){
+		
+	}
+	fis.close();
+e)
+	import java.util.*;
+	import java.text.*;
+	import java.sql.*;
+	import java.util.stream.*;
+
+Annotations| Annotations, a form of metadata, provide data about a program that is not part of the program itself. Annotations have no direct effect on the operation of the code they annotate.
+
+1. @Override annotation indicates that a method declaration is intended to override a method declaration in a supertype else the compiler generates an error. We can add this built in annotation only with a method declaration.
+
+2. @Deprecated annotation indicates that a method/variable/class should no longer be used because a better alternative exists.
+
+https://docs.oracle.com/javase/tutorial/java/annotations/
+
+Example:
+class Shapes{
+	int area(int dim) {
+		return 0;
+	}
+}
+class Circle extends Shapes{
+	@Override
+	@Deprecated
+	int area(int dim) {
+		return (int)(dim*dim*Math.PI);
+	}	
+	double area(double dim) {
+		return (dim*dim*Math.PI);
+	}
+}
+public class Main15 {
+public static void main(String[] args) {
+	Circle circle=new Circle();
+	System.out.println(String.format("%.2f",circle.area(5.0)));
+}
+}
+
+Garbage Collection |Garbage collection in Java is the process by which Java programs perform automatic memory management.
+
+https://www.geeksforgeeks.org/garbage-collection-java/#:~:text=Garbage%20collection%20in%20Java%20is,memory%20dedicated%20to%20the%20program.
+
+The objects created in the heap memory of the JVM will become eligible for gc when they are no longer being referenced by any one.
+
+Runtime.getRuntime().gc() or System.gc() | Runs the garbage collector.Calling this method suggests that the Java virtual machine expend effort toward recycling unused objects in order to make the memory they currently occupy available for quick reuse. 
+
+Example
+class Shapes{}
+public class Main15 {
+	public static void main(String[] args) {
+		Shapes shape=null;
+		Runtime runtime=Runtime.getRuntime();
+		System.out.println("A| "+runtime.freeMemory()/1024+ " kb");
+		for(int i=0;i<100000;i++)
+			shape=new Shapes();
+		System.out.println("B| "+runtime.freeMemory()/1024 +" kb");
+		runtime.gc();
+		//System.gc();
+		System.out.println("C| "+runtime.freeMemory()/1024 +" kb");				
+	}
+}
+
+public void finalize()| Called by the garbage collector on an object when garbage collection determines that there are no more references to the object.A subclass overrides the finalize method to dispose of system resources or to perform other cleanup. 
+
+Difference between final,finally,finalize()
+--------------------------------------------
+final keyword can be used with class to make it non inheritable like java.lang.String class.
+
+finally block is part of exception handling which is used to release
+the resources being used
+
+finalize() method is called by the garbage collector process for cleanup operations.
+
+Thread basics
+A thread is a light weight process which has its own stack of execution.
+A process comprises of multiple threads.
+
+We can create our custom thread either by
+a) implementing the java.lang.Runnable interface
+b) extending the java.lang.Thread class
+
+Option a) is recommended because we can implement multiple interfaces.
+We need to override the public void run(){} which is the only abstract
+method defined inthe Runnable interface.
+
+When we execute any code, the JVM creates a thread called main.
+
+Thread instance.start() | Causes this thread to begin execution; the Java Virtual Machine calls the run method of this thread. 
+
+Example:
+class Demo implements Runnable{
+	@Override
+	public void run() {
+		System.out.println(Thread.currentThread().getName());
+	}	
+}
+public class Main15 {
+	public static void main(String[] args) {
+		System.out.println(Thread.currentThread().getName());
+		Demo d=new Demo();
+		Thread th=new Thread(d,"jerry");
+		System.out.println(th.getState());//NEW
+		th.start();//jvm implicitly invokes the run() method
+		System.out.println(th.getState());//RUNNABLE
+		//	d.run();//main thread's stack of execution
+		/*Thread th1=new Thread(d,"tom");
+		th1.start();*/
+		System.out.println(th.getState());
+	}
+}
+
+a)th.join() when called by a thread asks the main thread to wait for this thread to die.  It calls for checked exception.
+b)It is never legal to start a thread more than once. If tried we get the IllegalThreadStateException.
+c) Thread.sleep(long milis); forces the thread to get into blocked state for that time interval.
+Causes the currently executing thread to sleep (temporarily cease execution) for the specified number of milliseconds, subject to the precision and accuracy of system timers and schedulers. The thread does not lose ownership of any monitors.
+
+
+
+
+
+
+
+File
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+************ICT***********************
+Automatic evaluation[-]
+Proposed grade: 92.5 / 100
+Result Description
+[-]Grading and Feedback
+DB connection - 20.0 / 20.0(Success)
+ 
+Service calls - 70.0 / 70.0(Success)
+ 
+Comments and best practices/standards - 2.5 / 10.0(Partial)
+ 
+Test Case Failed
+
+
+ConstructionCostTimeEstimate/database.properties
+    1 #IF NEEDED, YOU CAN MODIFY THIS PROPERTY FILE
+    2 #ENSURE YOU ARE NOT CHANGING THE NAME OF THE PROPERTY
+    3 #YOU CAN CHANGE THE VALUE OF THE PROPERTY 
+    4 #LOAD THE DETAILS OF DRIVER CLASS, URL, USERNAME AND PASSWORD using this properties file only. 
+    5 #Do not hard code the values
+    6 
+    7 drivername=com.mysql.jdbc.Driver
+    8 url=jdbc:mysql://localhost:3306/ctsuniversity
+    9 username=root
+   10 password=
+ConstructionCostTimeEstimate/inputfeed.txt
+    1 CP001,2021-11-17,Residential,Apartments,100000
+    2 CP002,2021-09-15,Commercial,ShoppingComplex,200000
+    3 CP003,2021-08-10,Residential,Villa,1000000
+    4 CP004,2021-07-13,Commercial,CommunityHall,100000
+    5 CP005,2021-08-12,Infrastructural,FlyOver,1000000
+ConstructionCostTimeEstimate/src/com/cts/conctes/client/CostAndTimeEstimation.java
+    1 package com.cts.conctes.client;
+    2 
+    3 import java.io.FileReader;
+    4 import com.cts.conctes.exception.ConstructionEstimationException;
+    5 import com.cts.conctes.service.ConstructionProjectEstimationService;
+    6 @SuppressWarnings("all")
+    7 public class CostAndTimeEstimation {
+    8     
+    9 	public static void main(String[] args) throws ConstructionEstimationException
+   10 	{
+   11 		ConstructionProjectEstimationService cpeService = new ConstructionProjectEstimationService();
+   12 		//WRITE YOUR CODE HERE
+   13 		boolean isTrue = cpeService.addConstructionProjectDetails("inputfeed.txt");
+   14 		
+   15 		if(isTrue){
+   16 		    System.out.println("All are added successfully into the database");
+   17 		}
+   18 		
+   19 	}
+   20 }
+   21 
+ConstructionCostTimeEstimate/src/com/cts/conctes/dao/CostAndTimeEstDAO.java
+    1 package com.cts.conctes.dao;
+    2 
+    3 import java.sql.Connection;
+    4 import java.sql.PreparedStatement;
+    5 import java.sql.SQLException;
+    6 import java.sql.ResultSet;
+    7 import java.util.ArrayList;
+    8 import java.util.Date;
+    9 
+   10 import com.cts.conctes.exception.ConstructionEstimationException;
+   11 import com.cts.conctes.model.ConstructionProject;
+   12 import com.cts.conctes.util.ApplicationUtil;
+   13 
+   14 
+   15 
+   16 public class CostAndTimeEstDAO {
+   17 
+   18 	public static Connection connection = null;
+   19 
+   20 	public boolean insertConstructionProject(ArrayList <ConstructionProject> constProjects) throws ConstructionEstimationException {
+   21 		boolean recordsAdded = false;
+   22 		
+   23 		//WRITE YOUR CODE HERE
+   24 		int index=0;
+   25 		int size=constProjects.size();
+   26 		connection=DBConnectionManager.getInstance().getConnection();
+   27 		String query="insert into constructionproject values(?,?,?,?,?,?,?); ";
+   28 		for(ConstructionProject cp:constProjects){
+   29 		    try{
+   30 		        PreparedStatement ps=connection.prepareStatement(query);
+   31 		        ps.setString(1,cp.getProjectId());
+   32 		        ps.setDate(2,ApplicationUtil.utilToSqlDateConverter(cp.getPlannedDOStart()));
+   33 		        ps.setString(3,cp.getTypeOfProject());
+   34 		        ps.setString(4,cp.getStructure());
+   35 		        ps.setDouble(5,cp.getAreaInSqFt());
+   36 		        ps.setDouble(6,cp.getEstimatedCostInlac());
+   37 		        ps.setDouble(7,cp.getEstimatedTimeInMonths());
+   38 		        
+   39 		        int row=ps.executeUpdate();
+   40 		        if(row>0){
+   41 		            index=index+1;
+   42 		        }
+   43 		        if(index==size){
+   44 		            recordsAdded=true;
+   45 		        }
+   46 		    }
+   47 		    catch(SQLException e){
+   48 		        //TODO Auto-generated catch block
+   49 		        e.printStackTrace();
+   50 		    }
+   51 		}
+   52 
+   53 		return recordsAdded;
+   54 	}
+   55 	public ArrayList<ConstructionProject>getConstructionProjectsData()throws ConstructionEstimationException{
+   56 	    ArrayList<ConstructionProject>consApplications=new ArrayList<ConstructionProject>();
+   57 	    connection=DBConnectionManager.getInstance().getConnection();
+   58 	    String query="select * from constructionproject";
+   59 	    
+   60 	    try{
+   61 	        PreparedStatement ps=connection.prepareStatement(query);
+   62 	        ResultSet rs=ps.executeQuery();
+   63 	        while(rs.next()){
+   64 	            String id=rs.getString(1);
+   65 	            Date d=rs.getDate(2);
+   66 	            String typeProject=rs.getString(3);
+   67 	            String structure=rs.getString(4);
+   68 	            double areaSqFt=rs.getDouble(5);
+   69 	            double costInLac=rs.getDouble(6);
+   70 	            double timeInMonths=rs.getDouble(7);
+   71 	            consApplications.add(new ConstructionProject(id,d,typeProject,structure,areaSqFt,costInLac,timeInMonths));
+   72 	        }
+   73 	    }catch(SQLException e){
+   74 	        //TODO Auto-generated catch block
+   75 	        e.printStackTrace();
+   76 	    }
+   77 	    return consApplications;
+   78 	}
+   79 	
+   80 }
+   81 
+ConstructionCostTimeEstimate/src/com/cts/conctes/dao/DBConnectionManager.java
+    1 package com.cts.conctes.dao;
+    2 import java.io.FileReader;
+    3 import java.io.FileInputStream;
+    4 import java.io.FileNotFoundException;
+    5 import java.io.IOException;
+    6 import java.sql.Connection;
+    7 import java.sql.DriverManager;
+    8 import java.sql.SQLException;
+    9 import java.util.Properties;
+   10 
+   11 import com.cts.conctes.exception.ConstructionEstimationException;
+   12 
+   13 
+   14 @SuppressWarnings("all")
+   15 public class DBConnectionManager {
+   16 
+   17 	 private static Connection con = null;
+   18 	 private static DBConnectionManager instance;
+   19 	
+   20 	public  DBConnectionManager()  throws ConstructionEstimationException
+   21 	{
+   22 		
+   23 		//WRITE YOUR CODE HERE
+   24       //return con;
+   25 	}
+   26 	public static DBConnectionManager getInstance() throws ConstructionEstimationException 
+   27 	{
+   28 		
+   29 		//WRITE YOUR CODE HERE
+   30 		if(instance==null){
+   31 		    instance=new DBConnectionManager();
+   32 		}
+   33 		return instance;
+   34 	}
+   35 	public Connection getConnection() 
+   36 	{
+   37 		//WRITE YOUR CODE HERE
+   38 		try{
+   39 		    Class.forName("com.mysql.jdbc.Driver");
+   40 		}catch(ClassNotFoundException e){
+   41 		    //TODO Auto-generated catch block
+   42 		    e.printStackTrace();
+   43 		}
+   44 		Properties properties=new Properties();
+   45 		FileReader f=null;
+   46 		try{
+   47 		    f=new FileReader("database.properties");
+   48 		}catch(FileNotFoundException e2){
+   49 		    //TODO Auto-generated catch block
+   50 		    e2.printStackTrace();
+   51 		}
+   52 		try{
+   53 		    properties.load(f);
+   54 		}catch(IOException e1){
+   55 		    //TODO Auto-generated catch block
+   56 		    e1.printStackTrace();
+   57 		}
+   58 		String url=properties.getProperty("url");
+   59 		String user=properties.getProperty("username");
+   60 		String password=properties.getProperty("password");
+   61 		
+   62 		try{
+   63 		    con=DriverManager.getConnection(url,user,password);
+   64 		}catch(SQLException e){
+   65 		    //TODO Auto-generated catch block
+   66 		    e.printStackTrace();
+   67 		}
+   68 		return con;
+   69 	}
+   70 }
+   71 
+ConstructionCostTimeEstimate/src/com/cts/conctes/exception/ConstructionEstimationException.java
+    1 package com.cts.conctes.exception;
+    2 
+    3 public class ConstructionEstimationException extends Exception{
+    4 
+    5 	String strMsg1;
+    6 	Throwable strMsg2;
+    7 
+    8 
+    9 	public ConstructionEstimationException() {
+   10 		super();
+   11 	}
+   12 
+   13 
+   14 	
+   15 }
+ConstructionCostTimeEstimate/src/com/cts/conctes/model/ConstructionProject.java
+    1 package com.cts.conctes.model;
+    2 
+    3 import java.util.Date;
+    4 
+    5 public class ConstructionProject {
+    6 
+    7 	String projectId;
+    8 	Date plannedDOStart;
+    9 	String typeOfProject;
+   10 	String structure;
+   11 	double areaInSqFt;
+   12 	double estimatedCostInlac;
+   13 	double estimatedTimeInMonths;
+   14 	
+   15 	
+   16 	public ConstructionProject() {
+   17 		super();
+   18 	}
+   19 
+   20 	public ConstructionProject(String projectId, Date plannedDOStart, String typeOfProject, String structure,
+   21 			double areaInSqFt, double estimatedCostInlac, double estimatedTimeInMonths) {
+   22 		super();
+   23 		this.projectId = projectId;
+   24 		this.plannedDOStart = plannedDOStart;
+   25 		this.typeOfProject = typeOfProject;
+   26 		this.structure = structure;
+   27 		this.areaInSqFt = areaInSqFt;
+   28 		this.estimatedCostInlac = estimatedCostInlac;
+   29 		this.estimatedTimeInMonths = estimatedTimeInMonths;
+   30 	}
+   31 
+   32 	public String getProjectId() {
+   33 		return projectId;
+   34 	}
+   35 
+   36 	public void setProjectId(String projectId) {
+   37 		this.projectId = projectId;
+   38 	}
+   39 
+   40 	public Date getPlannedDOStart() {
+   41 		return plannedDOStart;
+   42 	}
+   43 
+   44 	public void setPlannedDOStart(Date plannedDOStart) {
+   45 		this.plannedDOStart = plannedDOStart;
+   46 	}
+   47 
+   48 	public String getTypeOfProject() {
+   49 		return typeOfProject;
+   50 	}
+   51 
+   52 	public void setTypeOfProject(String typeOfProject) {
+   53 		this.typeOfProject = typeOfProject;
+   54 	}
+   55 
+   56 	public String getStructure() {
+   57 		return structure;
+   58 	}
+   59 
+   60 	public void setStructure(String structure) {
+   61 		this.structure = structure;
+   62 	}
+   63 
+   64 	public double getAreaInSqFt() {
+   65 		return areaInSqFt;
+   66 	}
+   67 
+   68 	public void setAreaInSqFt(double areaInSqFt) {
+   69 		this.areaInSqFt = areaInSqFt;
+   70 	}
+   71 
+   72 	public double getEstimatedCostInlac() {
+   73 		return estimatedCostInlac;
+   74 	}
+   75 
+   76 	public void setEstimatedCostInlac(double estimatedCostInlac) {
+   77 		this.estimatedCostInlac = estimatedCostInlac;
+   78 	}
+   79 
+   80 	public double getEstimatedTimeInMonths() {
+   81 		return estimatedTimeInMonths;
+   82 	}
+   83 
+   84 	public void setEstimatedTimeInMonths(double estimatedTimeInMonths) {
+   85 		this.estimatedTimeInMonths = estimatedTimeInMonths;
+   86 	}
+   87 
+   88 	@Override
+   89 	public String toString() {
+   90 		return "ConstructionProject [projectId=" + projectId + ", plannedDOStart=" + plannedDOStart + ", typeOfProject="
+   91 				+ typeOfProject + ", structure=" + structure + ", areaInSqFt=" + areaInSqFt + ", estimatedCostInlac="
+   92 				+ estimatedCostInlac + ", estimatedTimeInMonths=" + estimatedTimeInMonths + "]";
+   93 	}
+   94 
+   95 }
+   96 
+ConstructionCostTimeEstimate/src/com/cts/conctes/service/ConstructionProjectEstimationService.java
+    1 package com.cts.conctes.service;
+    2 
+    3 import java.util.ArrayList;
+    4 import java.util.Date;
+    5 import java.util.List;
+    6 
+    7 import com.cts.conctes.dao.CostAndTimeEstDAO;
+    8 import com.cts.conctes.exception.ConstructionEstimationException;
+    9 import com.cts.conctes.model.ConstructionProject;
+   10 import com.cts.conctes.util.ApplicationUtil;
+   11 
+   12 
+   13 public class ConstructionProjectEstimationService {
+   14 	
+   15 	public static ArrayList <ConstructionProject> buildConstructionProjectList(List <String> consProjectRecords) {
+   16 	
+   17 	
+   18 		
+   19 		final String COMMADELIMITER = ",";
+   20 		ArrayList <ConstructionProject> consProjectRecordList = new ArrayList<ConstructionProject>();
+   21 		 
+   22 		//WRITE YOUR CODE HERE
+   23 		for(String s:consProjectRecords){
+   24 		    String[] s1=s.split(COMMADELIMITER);
+   25 		    String id=s1[0];
+   26 		    Date d=ApplicationUtil.stringToDateConverter(s1[1]);
+   27 		    String typeproject=s1[2];
+   28 		    String structure=s1[3];
+   29 		    double areaInSqFt=Double.parseDouble(s1[4]);
+   30 		    double costs[]=estimateTimeAndCostForConstruction(typeproject,structure,areaInSqFt);
+   31 		    double estimatedCostInLac=costs[0];
+   32 		    double estimatedTimeInMon=costs[1];
+   33 		    
+   34 		    ConstructionProject p=new ConstructionProject(id,d,typeproject,structure,areaInSqFt,estimatedCostInLac,estimatedTimeInMon);
+   35 		    consProjectRecordList.add(p);
+   36 		}
+   37 		
+   38 		return consProjectRecordList;
+   39 	}
+   40 	
+   41 	public boolean addConstructionProjectDetails(String inputFeed) throws ConstructionEstimationException {
+   42 		
+   43 		//WRITE YOUR CODE HERE
+   44 		ArrayList<ConstructionProject>p=buildConstructionProjectList(ApplicationUtil.readFile(inputFeed));
+   45 		CostAndTimeEstDAO obj=new CostAndTimeEstDAO();
+   46 		if(obj.insertConstructionProject(p)){
+   47 		    ArrayList<ConstructionProject> p1=obj.getConstructionProjectsData();
+   48 		    for(ConstructionProject cp:p1){
+   49 		        System.out.println(cp);
+   50 		    }
+   51 		    return true;
+   52 		}
+   53 	 return false;
+   54 	}
+   55 
+   56 	public static double[] estimateTimeAndCostForConstruction(String projectType,String structure,double areaInSqFt)
+   57 	{
+   58 		
+   59 		double costEstimateInRs=0.0,timeEstimateInMonths=0.0;
+   60 		double costs[] = {costEstimateInRs,timeEstimateInMonths};
+   61 		/*
+   62 		 * The Cost Estimate and 
+   63 		 * 
+   64 		Based on the type of the Project & the Structure , according to the required 
+   65 		area of Construction, the cost & time have to be calculated based on the base 
+   66 		data available in the table provided in the use case document:
+   67 		For eg. If the Project Type is �Commercial�  and the structure 
+   68 		is �Shopping Complex� the cost incurred for the construction of 
+   69 		per sq. ft is Rs.2600 and the time taken for the construction of 
+   70 		the 1000 sq ft of the same project  is 0.23 Months, 
+   71 		calculation has to be performed on the similar basis 
+   72 		i.e Pro rata basis depending upon the type and the area of construction. 
+   73 
+   74 		 */
+   75 		
+   76 		//WRITE YOUR CODE HERE
+   77 		if(projectType.equals("Commercial")){
+   78 		    if(structure.equals("Shopping Complex")){
+   79 		        costs[0]=2600*areaInSqFt;
+   80 		        costs[1]=0.23*areaInSqFt/1000;
+   81 		    }
+   82 		    else if(structure.equals("ResApartments")){
+   83 		        costs[0]=2750*areaInSqFt;
+   84 		        costs[1]=0.24*areaInSqFt/1000;
+   85 		    }
+   86 		    else{
+   87 		        costs[0]=2600*areaInSqFt;
+   88 		        costs[1]=0.2*areaInSqFt/1000;
+   89 		    }
+   90 		}
+   91 		
+   92 		else if(projectType.equals("Infrastructural")){
+   93 		    if(structure.equals("Bridge")){
+   94 		        costs[0]=10000*areaInSqFt;
+   95 		        costs[1]=0.25*areaInSqFt/1000;
+   96 		    }
+   97 		    else if(structure.equals("FlyOver")){
+   98 		        costs[0]=14000*areaInSqFt;
+   99 		        costs[1]=0.22*areaInSqFt/1000;
+  100 		    }
+  101 		    else{
+  102 		        costs[0]=8000*areaInSqFt;
+  103 		        costs[1]=0.25*areaInSqFt/1000;
+  104 		    }
+  105 		}
+  106 		else{
+  107 		    if(structure.equals("House")){
+  108 		        costs[0]=2250*areaInSqFt;
+  109 		        costs[1]=0.26*areaInSqFt/1000;
+  110 		    }
+  111 		    else if(structure.equals("Apartments")){
+  112 		        costs[0]=2500*areaInSqFt;
+  113 		        costs[1]=0.24*areaInSqFt/1000;
+  114 		    }
+  115 		    else{
+  116 		        costs[0]=2750*areaInSqFt;
+  117 		        costs[1]=0.23*areaInSqFt/1000;
+  118 		    }
+  119 		}
+  120 		return costs;
+  121 	
+  122 	}
+  123 	
+  124 
+  125 }
+  126 
+ConstructionCostTimeEstimate/src/com/cts/conctes/skeleton/SkeletonValidator.java
+    1 package com.cts.conctes.skeleton;
+    2 
+    3 import java.lang.reflect.Method;
+    4 import java.util.ArrayList;
+    5 import java.util.List;
+    6 import java.util.logging.Level;
+    7 import java.util.logging.Logger;
+    8 
+    9 import com.cts.conctes.model.ConstructionProject;
+   10 
+   11 
+   12 
+   13 /**
+   14  * @author 222805
+   15  * 
+   16  * This class is used to verify if the Code Skeleton is intact and not modified by participants thereby ensuring smooth auto evaluation
+   17  *
+   18  */
+   19 public class SkeletonValidator {
+   20 
+   21 	public SkeletonValidator() {
+   22 		validateClassName("com.cts.conctes.model.ConstructionProject");
+   23 		validateClassName("com.cts.conctes.dao.CostAndTimeEstDAO");
+   24 		validateClassName("com.cts.conctes.dao.DBConnectionManager");
+   25 		validateClassName("com.cts.conctes.exception.ConstructionEstimationException");
+   26 		validateClassName("com.cts.conctes.service.ConstructionProjectEstimationService");
+   27 		validateClassName("com.cts.conctes.util.ApplicationUtil");
+   28 			
+   29 		validateMethodSignature("insertConstructionProject:boolean","com.cts.conctes.dao.CostAndTimeEstDAO");
+   30 		validateMethodSignature("getInstance:DBConnectionManager","com.cts.conctes.dao.DBConnectionManager");
+   31 		validateMethodSignature("getConnection:Connection","com.cts.conctes.dao.DBConnectionManager");
+   32 		validateMethodSignature("buildConstructionProjectList:ArrayList,addConstructionProjectDetails:boolean,estimateTimeAndCostForConstruction:double[]","com.cts.conctes.service.ConstructionProjectEstimationService");
+   33 		
+   34 
+   35 	}
+   36 
+   37 	private static final Logger LOG = Logger.getLogger("SkeletonValidator");
+   38 
+   39 	protected final boolean validateClassName(String className) {
+   40 
+   41 		boolean iscorrect = false;
+   42 		try {
+   43 			Class.forName(className);
+   44 			iscorrect = true;
+   45 			LOG.info("Class Name " + className + " is correct");
+   46 
+   47 		} catch (ClassNotFoundException e) {
+   48 			LOG.log(Level.SEVERE, "You have changed either the " + "class name/package. Use the correct package "
+   49 					+ "and class name as provided in the skeleton");
+   50 
+   51 		} catch (Exception e) {
+   52 			LOG.log(Level.SEVERE,
+   53 					"There is an error in validating the " + "Class Name. Please manually verify that the "
+   54 							+ "Class name is same as skeleton before uploading");
+   55 		}
+   56 		return iscorrect;
+   57 
+   58 	}
+   59 
+   60 	protected final void validateMethodSignature(String methodWithExcptn, String className) {
+   61 		Class cls = null;
+   62 		try {
+   63 
+   64 			String[] actualmethods = methodWithExcptn.split(",");
+   65 			boolean errorFlag = false;
+   66 			String[] methodSignature;
+   67 			String methodName = null;
+   68 			String returnType = null;
+   69 
+   70 			for (String singleMethod : actualmethods) {
+   71 				boolean foundMethod = false;
+   72 				methodSignature = singleMethod.split(":");
+   73 
+   74 				methodName = methodSignature[0];
+   75 				returnType = methodSignature[1];
+   76 				cls = Class.forName(className);
+   77 				Method[] methods = cls.getMethods();
+   78 				for (Method findMethod : methods) {
+   79 					if (methodName.equals(findMethod.getName())) {
+   80 						foundMethod = true;
+   81 						if (!(findMethod.getReturnType().getSimpleName().equals(returnType))) {
+   82 							errorFlag = true;
+   83 							LOG.log(Level.SEVERE, " You have changed the " + "return type in '" + methodName
+   84 									+ "' method. Please stick to the " + "skeleton provided");
+   85 
+   86 						} else {
+   87 							LOG.info("Method signature of " + methodName + " is valid");
+   88 						}
+   89 
+   90 					}
+   91 				}
+   92 				if (!foundMethod) {
+   93 					errorFlag = true;
+   94 					LOG.log(Level.SEVERE, " Unable to find the given public method " + methodName
+   95 							+ ". Do not change the " + "given public method name. " + "Verify it with the skeleton");
+   96 				}
+   97 
+   98 			}
+   99 			if (!errorFlag) {
+  100 				LOG.info("Method signature is valid");
+  101 			}
+  102 
+  103 		} catch (Exception e) {
+  104 			LOG.log(Level.SEVERE,
+  105 					" There is an error in validating the " + "method structure. Please manually verify that the "
+  106 							+ "Method signature is same as the skeleton before uploading");
+  107 		}
+  108 	}
+  109 
+  110 }
+  111 
+ConstructionCostTimeEstimate/src/com/cts/conctes/util/ApplicationUtil.java
+    1 package com.cts.conctes.util;
+    2 import java.io.FileReader;
+    3 import java.io.BufferedReader;
+    4 import java.io.FileInputStream;
+    5 import java.io.FileNotFoundException;
+    6 import java.io.IOException;
+    7 import java.io.InputStreamReader;
+    8 import java.text.ParseException;
+    9 import java.text.SimpleDateFormat;
+   10 import java.util.ArrayList;
+   11 import java.util.Date;
+   12 import java.util.List;
+   13 import java.util.StringTokenizer;
+   14 
+   15 import com.cts.conctes.exception.ConstructionEstimationException;
+   16 
+   17 
+   18 @SuppressWarnings("all")
+   19 public class ApplicationUtil {
+   20 
+   21 	public static List<String> readFile(String inputfeed) throws ConstructionEstimationException {
+   22 		List<String> constructionProjects = new ArrayList<String>();
+   23 		
+   24 		//WRITE YOUR CODE HERE
+   25 		BufferedReader br=null;
+   26 		try{
+   27 		    br=new BufferedReader(new FileReader(inputfeed));
+   28 		}catch(FileNotFoundException e1){
+   29 		    //TODO Auto-generated catch block
+   30 		    e1.printStackTrace();
+   31 		}
+   32 		String s=null;
+   33 		try{
+   34 		    s=br.readLine();
+   35 		    while(s!=null){
+   36 		        String s1[]=s.split(",");
+   37 		        //if(checkIfCurrentFinYearProject(stringToDateConverter(s1[1])))
+   38 		        constructionProjects.add(s);
+   39 		        s=br.readLine();
+   40 		    }
+   41 		}catch(IOException e){
+   42 		    //TODO Auto-generated catch block
+   43 		    e.printStackTrace();
+   44 		}
+   45 		return constructionProjects;
+   46 	}
+   47 	public static java.sql.Date utilToSqlDateConverter(java.util.Date utDate) {
+   48 		java.sql.Date sqlDate;
+   49 		
+   50 		//WRITE YOUR CODE HERE
+   51 		String s=new SimpleDateFormat("yyyy-MM-dd").format(utDate);
+   52 		sqlDate=java.sql.Date.valueOf(s);
+   53 		return sqlDate;
+   54 	}
+   55 	
+   56 	public static java.util.Date stringToDateConverter(String stringDate) {
+   57 		Date strDate = null;
+   58 		
+   59 		//WRITE YOUR CODE HERE
+   60 		SimpleDateFormat sdf=new SimpleDateFormat("yyyy-MM-dd");
+   61 		try{
+   62 		    strDate=sdf.parse(stringDate);
+   63 		}catch(ParseException e){
+   64 		    //TODO Auto-generated catch block
+   65 		    e.printStackTrace();
+   66 		}
+   67 		
+   68 		return strDate;
+   69 	}
+   70 	public static boolean checkIfCurrentFinYearProject(Date dos)
+   71 	{
+   72 		boolean flag = false;
+   73 		int givenYear,givenMonth;
+   74 		givenYear = (dos.getYear()+1900);
+   75 		givenMonth = dos.getMonth();
+   76 		Date curDate = new Date();
+   77 		int curYear,curMonth;
+   78 		curYear = (curDate.getYear()+1900);
+   79 		curMonth = curDate.getMonth();
+   80 		if( curYear == givenYear)
+   81 		{
+   82 			if(((curMonth >=0)&&(curMonth <= 2)) && ((givenMonth >=0)&&(givenMonth <= 2)))
+   83 			{
+   84 				flag = true;
+   85 			}
+   86 			else if(((curMonth >=3)&&(curMonth <= 11)) && ((givenMonth >=3)&&(givenMonth <= 11)))
+   87 			{
+   88 				flag = true;
+   89 			}
+   90 			else
+   91 			{
+   92 				flag = false;
+   93 			}
+   94 		}
+   95 		else if(curYear > givenYear)
+   96 		{
+   97 			int dif = curYear - givenYear;
+   98 			if(dif == 1)
+   99 			{
+  100 				if(((curMonth >=0)&&(curMonth <= 2)) && ((givenMonth >=3)&&(givenMonth <= 11)))
+  101 				{
+  102 					flag = true;
+  103 				}
+  104 				else if(((curMonth >=3)&&(curMonth <= 11)) && ((givenMonth >=3)&&(givenMonth <= 11)))
+  105 				{
+  106 					flag = false;
+  107 				}
+  108 				else
+  109 				{
+  110 					flag = false;
+  111 				}
+  112 			}
+  113 			else
+  114 			{
+  115 				flag = false;
+  116 			}
+  117 		}
+  118 		else if(curYear < givenYear)
+  119 		{
+  120 			int dif =  givenYear-curYear;
+  121 			if(dif == 1)
+  122 			{
+  123 				if(((curMonth >=3)&&(curMonth <= 11)) && ((givenMonth >=0)&&(givenMonth <= 2)))
+  124 				{
+  125 					flag = true;
+  126 				}
+  127 				else if(((curMonth >=3)&&(curMonth <= 11)) && ((givenMonth >=3)&&(givenMonth <= 11)))
+  128 				{
+  129 					flag = false;
+  130 				}
+  131 				else
+  132 				{
+  133 					flag = false;
+  134 				}
+  135 			}
+  136 			else
+  137 			{
+  138 				flag = false;
+  139 			}
+  140 		}
+  141 		else
+  142 		{
+  143 			flag = false;
+  144 		}
+  145 		
+  146 		return flag;
+  147 		
+  148 	}
+  149 	
+  150 
+  151 }
+  152 
+Grade
+Reviewed on Wednesday, 26 May 2021, 10:30 PM by Automatic grade
+Grade 92.5 / 100
+Assessment report
+[+]Grading and Feedback
+
+
+
+
+
+
+
+
+

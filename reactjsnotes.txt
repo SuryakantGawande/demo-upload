@@ -1,0 +1,7 @@
+PS C:\Users\2082402\OneDrive - Cognizant\Desktop\JAVA ADM21JF020\reactjs> node --version
+v16.14.2
+PS C:\Users\2082402\OneDrive - Cognizant\Desktop\JAVA ADM21JF020\reactjs> npm --version
+8.7.0
+PS C:\Users\2082402\OneDrive - Cognizant\Desktop\JAVA ADM21JF020\reactjs> npx --version
+8.7.0
+

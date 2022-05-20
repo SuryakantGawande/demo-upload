@@ -1,0 +1,90 @@
+1) What is Spring?
+It is a lightweight, loosely coupled and integrated framework for developing enterprise applications in java.
+
+3) What are the modules of spring framework?
+Test
+Spring Core Container
+AOP, Aspects and Instrumentation
+Data Access/Integration
+Web
+
+4) What is IOC and DI?
+IOC (Inversion of Control) and DI (Dependency Injection) is a design pattern to provide loose coupling. It removes the dependency from the program.
+
+5) What is the role of IOC container in spring?
+IOC container is responsible to:
+
+create the instance
+configure the instance, and
+assemble the dependencies
+
+6) What are the types of IOC container in spring?
+There are two types of IOC containers in spring framework.
+
+BeanFactory
+ApplicationContext
+
+7) What is the difference between BeanFactory and ApplicationContext?
+BeanFactory is the basic container whereas ApplicationContext is the advanced container. ApplicationContext extends the BeanFactory interface. ApplicationContext provides more facilities than BeanFactory such as integration with spring AOP, message resource handling for i18n etc.
+
+9) What is autowiring in spring? What are the autowiring modes?
+Autowiring enables the programmer to inject the bean automatically. We don't need to write explicit injection logic.
+
+Let's see the code to inject bean using dependency injection.
+
+<bean id="emp" class="com.javatpoint.Employee" autowire="byName" /> 
+ 
+The autowiring modes are given below:
+No.	Mode	Description
+1)	no	-this is the default mode, it means autowiring is not enabled.
+2)	byName	-injects the bean based on the property name. It uses setter method.
+3)	byType-	injects the bean based on the property type. It uses setter method.
+4)	constructor	-It injects the bean using constructor
+_______________________________________________________________________________
+
+13) What are the advantages of JdbcTemplate in spring?
+Less code: By using the JdbcTemplate class, you don't need to create connection,statement,start transaction,commit transaction and close connection to execute different queries. You can execute the query directly.
+
+14) What are classes for spring JDBC API?
+JdbcTemplate
+SimpleJdbcTemplate
+NamedParameterJdbcTemplate
+SimpleJdbcInsert
+SimpleJdbcCall
+
+5) How can you fetch records by spring JdbcTemplate?
+You can fetch records from the database by the query method of JdbcTemplate. There are two interfaces to do this:
+
+ResultSetExtractor
+RowMapper
+
+What is the advantage of NamedParameterJdbcTemplate?
+NamedParameterJdbcTemplate class is used to pass value to the named parameter. A named parameter is better than ? (question mark of PreparedStatement).
+
+It is better to remember.
+
+17) What is the advantage of SimpleJdbcTemplate?
+The SimpleJdbcTemplate supports the feature of var-args and autoboxing.
+
+______________________________________________________________________
+
+ Spring MVC Interview Questions
+33) What is the front controller class of Spring MVC?
+The DispatcherServlet class works as the front controller in Spring MVC.
+
+More details...
+34) What does @Controller annotation?
+The @Controller annotation marks the class as controller class. It is applied on the class.
+
+35) What does @RequestMapping annotation?
+The @RequestMapping annotation maps the request with the method. It is applied on the method.
+
+36) What does the ViewResolver class?
+The View Resolver class resolves the view component to be invoked for the request. It defines prefix and suffix properties to resolve the view component.
+
+37) Which ViewResolver class is widely used?
+The org.springframework.web.servlet.view.InternalResourceViewResolver class is widely used.
+
+38) Does spring MVC provide validation support?
+Yes.
+
